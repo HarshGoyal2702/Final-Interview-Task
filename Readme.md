@@ -1,76 +1,107 @@
-# 🚀 Zenithra Tech - Final Stage: The Hardware Interface Quest
 
-> *"The ancient gates grind open. You have proven your worth as a Master of the Full-Stack arts."*
+## 🚀 Live Demo
 
-If you are reading this, **congratulations**. You successfully bypassed the Frontend Canvas Trap, spoofed your headers, manipulated the temporal timestamps, and decoded the Ancestors' riddle to pass the Gatekeeper API. 
-
-**You are in the top 1% of candidates who make it this far.** The "Real Gem" is right in front of you. You have already proven your backend and problem-solving prowess. This final, practical task is designed to test your ability to interact with the physical layer of a user's device.
+👉 https://zenithratech-interview-task.vercel.app/
 
 ---
 
-## 🎯 The Final Objective
+## 🎯 Features
 
-Your task is to build a sleek, single-page web interface that successfully connects to the user's local hardware using modern Web APIs. 
+### 📷 Camera (WebRTC)
 
-You do not need to build a complex backend for this. We are evaluating your frontend architecture, your handling of browser permissions, and your ability to manage asynchronous hardware streams.
+* Accesses user webcam using `getUserMedia`
+* Start/Stop control with real-time preview
+* Handles permission denial gracefully
 
-### 🛠️ Core Requirements
+### 🎤 Voice to Text (Web Speech API)
 
-You must implement the following three hardware connections on a single dashboard:
+* Converts speech to real-time text
+* Continuous listening with auto-restart
+* Single-button UX (Start / Stop)
+* Handles permission and browser limitations
 
-| Feature | API / Technology Required | Expected Output on Screen |
-| :--- | :--- | :--- |
-| **📷 Video Feed** | WebRTC (`getUserMedia`) | A live video feed from the user's webcam rendered in a `<video>` element. |
-| **🎤 Voice to Text** | Web Speech API | Capture the user's voice via microphone and print the live transcription (text) onto the screen. |
-| **🦷 Bluetooth** | Web Bluetooth API | A button that prompts the browser to scan for nearby Bluetooth devices and prints the name/ID of the selected device. |
+### 🦷 Bluetooth (Web Bluetooth API)
 
----
-
-## 📜 Rules of Engagement & AI Policy
-
-At Zenithra Tech, we mirror real-world engineering. We don't expect you to memorize syntax, and we actively encourage the use of modern developer tools.
-
-* **You are fully permitted and encouraged to use AI tools (ChatGPT, Gemini, GitHub Copilot), YouTube, and documentation.**
-* **The Catch:** Your final code is only 50% of the evaluation. During the technical interview, you must be able to explain *why* you chose your implementation, how the browser permission lifecycle works, and how you handled potential errors (e.g., what happens if the user denies camera access?).
+* Scans nearby Bluetooth devices
+* Displays selected device information
+* Handles unsupported/unnamed devices
 
 ---
 
-## 🛤️ Your Path to the Offer (Step-by-Step)
+## 🧠 Key Concepts Implemented
 
-We value your time. If you can get the core requirements working and submit a Pull Request, **you are fully eligible for the role.** ### Step 1: Fork & Clone
-* **Fork** this repository to your own GitHub account.
-* **Clone** your forked repository to your local machine.
-
-### Step 2: Build the Interface
-* Create your solution. You may use plain HTML/JS/CSS, React, Vue, or any modern framework you feel most powerful in.
-* Ensure your UI clearly shows the Camera feed, the Voice Transcription text, and the Bluetooth connection status.
-
-### Step 3: Submit Your Pull Request (Eligibility Checkpoint 🏁)
-* Commit your code to your forked repository.
-* Open a **Pull Request (PR)** against this original Zenithra repository.
-* *Once your PR is submitted, your technical submission is officially complete!*
-
-### Step 4: The Final Polish (Bonus / Optional 🌟)
-Want to instantly stand out as a Senior Engineer? 
-* **Deploy your solution** (using Vercel, Netlify, GitHub Pages, Cloudflare etc.) and include the live URL in your Pull Request description. *(Note: Web Bluetooth and WebRTC require HTTPS to function properly!)*
+* **Secure Context (HTTPS)** for hardware APIs
+* **Permission Handling** using `navigator.permissions`
+* **State-driven UI** for better UX
+* **Continuous Speech Recognition** using `onend` restart logic
+* **Fallback Handling** for device limitations (e.g., unknown Bluetooth devices)
 
 ---
 
-## 🧪 Evaluation Criteria
+## 🏗️ Tech Stack
 
-When reviewing your Pull Request, our engineering team will look at:
-1.  **Permission Handling:** Do you gracefully handle scenarios where the user blocks microphone or camera access?
-2.  **Code Cleanliness:** Is your logic for hardware APIs modular and easy to read, or is it a single massive file?
-3.  **UX/UI:** It doesn't need to be a masterpiece, but it should look professional and clearly indicate to the user when hardware is recording/listening.
+* React (Vite)
+* Tailwind CSS
+* Web APIs:
+
+  * WebRTC (`getUserMedia`)
+  * Web Speech API
+  * Web Bluetooth API
 
 ---
 
-## 📬 Contact & Support
+## 📁 Project Structure
 
-You have come incredibly far. Don't hesitate to reach out if you hit a critical roadblock or have questions about the expectations. 
+```
+src/
+ ├── components/
+ │   ├── Camera.jsx
+ │   ├── Voice.jsx
+ │   ├── Bluetooth.jsx
+ │
+ ├── pages/
+ │   ├── CameraPage.jsx
+ │   ├── VoicePage.jsx
+ │   ├── BluetoothPage.jsx
+ |   ├── Home.jsx
+ │
+ ├── utils/
+ │   ├── status-config.js
+```
 
-* **Hiring Manager Email:** harshgoyal@zenithratech.com
-* **LinkedIn:** https://www.linkedin.com/in/devharshgoyal/
-* **Phone/WhatsApp:** 9211848317
+---
 
-*Submit your PR, take a breath, and get ready for a great technical conversation. We look forward to meeting you!*
+## ⚙️ How to Run Locally
+
+```bash
+git clone https://github.com/ShubhamMalik09/Zenithratech-Interview-Task
+cd Zenithratech-Interview-Task
+npm install
+npm run dev
+```
+
+---
+
+## 🌐 Deployment
+
+Deployed on **Vercel** to ensure HTTPS support required for hardware APIs.
+
+---
+
+## ⚠️ Limitations
+
+* Web Speech API is not supported in all browsers (best in Chrome)
+* Web Bluetooth works only on HTTPS and supported devices
+* Some Bluetooth devices may appear as "Unknown" due to hardware restrictions
+* Speech recognition may require internet (depends on browser implementation)
+
+---
+
+## 🧠 Learnings
+
+* Understanding browser security model (HTTPS & secure context)
+* Handling asynchronous hardware APIs
+* Managing permissions and user interaction flows
+* Designing clean, scalable frontend architecture
+
+---
